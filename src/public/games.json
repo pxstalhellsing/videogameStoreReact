@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Resident Evil 4",
+        "price": 29990,
+        "genre": "Terror",
+        "plataform": "PC",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bo0.webp"
+
+    },
+    {
+        "id": 2,
+        "title": "Devil",
+        "price": 29990,
+        "genre": "Hack and Slash",
+        "plataform": "PC",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1i6u.webp"
+
+    }
+]
