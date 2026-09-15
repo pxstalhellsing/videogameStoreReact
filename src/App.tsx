@@ -1,12 +1,38 @@
 import { useState } from 'react'
 import Navbar from './Componentes/Navbar'
+import Filtradores from "./Componentes/Filtradores";
+import TarjetaJuego from "./Componentes/TarjetaJuego";
+import Carrito from "./Componentes/Carrito";
+import Favoritos from "./Componentes/Favoritos";
 
 import './App.css'
 
+type Juego = {
+  id: number;
+  title: string;
+  price: number;
+  genre: string;
+  platform: string;
+  image: string;
+  description?: string;
+  stock: number;
+  rating: number;
+};
+
+type JuegoCarrito = Juego & {
+  quantity: number;
+};
+
+
+
 function App() {
   const [vista, setvista] = useState("catalogo");
+  const [juegos, setJuegos] = useState<Juego[]>([]);
   const [carro, setcarro] = useState([]);
   const [favoritos, setfavoritos] = useState([])
+  const [searchTerm, setSearchTerm] = useState("");
+  const [platform, setPlatform] = useState("");
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
