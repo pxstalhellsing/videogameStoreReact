@@ -1,4 +1,4 @@
-const TarjetaJuego = ({
+const TarjetaJuegos = ({
     game,
     agregarCarrito,
     toggleFavorite,
@@ -64,4 +64,4 @@ const TarjetaJuego = ({
     );
   };
   
-  export default TarjetaJuego;
+  export default TarjetaJuegos;

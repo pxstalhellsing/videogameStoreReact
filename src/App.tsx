@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Navbar from './Componentes/Navbar'
 import Filtradores from "./Componentes/Filtradores";
-import TarjetaJuego from "./Componentes/TarjetaJuego";
+import TarjetaJuegos from "./Componentes/TarjetaJuegos";
 import Carrito from "./Componentes/Carrito";
 import Favoritos from "./Componentes/Favoritos";
 
