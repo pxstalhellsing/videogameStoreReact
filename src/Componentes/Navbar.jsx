@@ -2,9 +2,12 @@ const Navbar = ({ cartCount, favCount }) => {
     return (
       <nav className="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold tracking-wider"> GameStore</h1>
+          <h1 className="text-2xl font-bold tracking-wider" onClick={() => setvista("catalogo")}> GameStore</h1>
           <div className="flex space-x-6 font-semibold">
-            <span className="hover:text-red-400 transition">
+            <span className="hover:text-purple-400 transition" onClick={() => setvista("catalogo")}>
+                Catalogo
+            </span>
+            <span className="hover:text-red-400 transition" onClick={() => setvista("favoritos")}>
                 Favoritos: {favCount}
             </span>
             <span className="hover:text-blue-400 transition">
@@ -17,3 +20,4 @@ const Navbar = ({ cartCount, favCount }) => {
   };
   
   export default Navbar;
+  
