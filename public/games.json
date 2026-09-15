@@ -4,7 +4,7 @@
         "title": "Resident Evil 4",
         "price": 29990,
         "genre": "Terror",
-        "plataform": "PC",
+        "platform": "PC",
         "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bo0.webp",
         "stock": 35,
         "rating": 9.5
@@ -15,7 +15,7 @@
         "title": "Devil May Cry 5",
         "price": 29990,
         "genre": "Hack and Slash",
-        "plataform": "PC",
+        "platform": "PC",
         "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rb4.webp",
         "stock": 30,
         "rating": 8.5
