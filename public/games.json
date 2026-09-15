@@ -16,5 +16,72 @@
         "plataform": "PC",
         "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1i6u.webp"
 
+    },
+
+    {
+        "id": 3,
+        "title": "Cyberpunk 2077: Ultimate Edition",
+        "price": 39990,
+        "platform": "PC",
+        "genre": "RPG / Sci-Fi",
+        "image": "https://placehold.co/600x400/fcee0a/black?text=Cyberpunk+2077",
+        "description": "Un RPG de acción y aventura de mundo abierto ambientado en Night City, una megalópolis obsesionada con el poder y el ciberespacio.",
+        "stock": 20,
+        "rating": 4.5
+    },
+    {
+        "id": 4,
+        "title": "God of War Ragnarök",
+        "price": 54990,
+        "platform": "PlayStation 5",
+        "genre": "Acción / Aventura",
+        "image": "https://placehold.co/600x400/003791/white?text=God+of+War",
+        "description": "Kratos y Atreus deben viajar a cada uno de los Nueve Reinos en busca de respuestas mientras se preparan para la batalla profetizada.",
+        "stock": 12,
+        "rating": 4.9
+    },
+    {
+        "id": 5,
+        "title": "Super Mario Bros. Wonder",
+        "price": 49990,
+        "platform": "Nintendo Switch",
+        "genre": "Plataformas",
+        "image": "https://placehold.co/600x400/e60012/white?text=Mario+Wonder",
+        "description": "El clásico juego de desplazamiento lateral de Mario da un giro sorprendente con la incorporación de las Flores Maravilla.",
+        "stock": 25,
+        "rating": 4.7
+    },
+    {
+        "id": 6,
+        "title": "Red Dead Redemption 2",
+        "price": 29990,
+        "platform": "PC",
+        "genre": "Mundo Abierto",
+        "image": "https://placehold.co/600x400/cc0000/white?text=RDR+2",
+        "description": "Una historia épica sobre la vida en el despiadado corazón de Estados Unidos, que ofrece una experiencia de mundo abierto inigualable.",
+        "stock": 30,
+        "rating": 4.9
+    },
+    {
+        "id": 7,
+        "title": "Hollow Knight",
+        "price": 12990,
+        "platform": "PC",
+        "genre": "Metroidvania",
+        "image": "https://placehold.co/600x400/222222/white?text=Hollow+Knight",
+        "description": "Forja tu propio camino en Hallownest, un mundo épico de insectos y héroes. Explora cavernas retorcidas y lucha contra criaturas.",
+        "stock": 50,
+        "rating": 4.8
+    },
+    {
+        "id": 8,
+        "title": "Halo Infinite",
+        "price": 34990,
+        "platform": "Xbox Series X",
+        "genre": "Shooter",
+        "image": "https://placehold.co/600x400/107c10/white?text=Halo+Infinite",
+        "description": "Cuando toda esperanza se ha perdido y el destino de la humanidad pende de un hilo, el Jefe Maestro está listo para enfrentarse a cualquier enemigo.",
+        "stock": 10,
+        "rating": 4.3
     }
 ]
