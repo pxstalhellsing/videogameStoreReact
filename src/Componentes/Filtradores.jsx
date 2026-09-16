@@ -89,7 +89,26 @@ const Filtradores = ({
 
       </div>
 
-      
+      <div className="col-12 col-md-1">
+
+        <button className="btn btn-secondary w-100" onClick={() => {
+
+          setSearchTerm("");
+          setPlatform("");
+          setGenre("");
+
+
+         }}
+        >
+          X
+        </button>
+
+
+      </div>
+
+    </div>
+  </div>  
+
   );
 };
 
