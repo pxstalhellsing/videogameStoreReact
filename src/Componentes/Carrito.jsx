@@ -1,5 +1,9 @@
 const Carrito = ({ cart }) => {
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const total = cart.reduce(
+      (sum, item) => 
+        sum + (item.price * item.quantity),
+       0
+    );
   
     return (
       <div className="bg-white p-5 rounded-lg shadow-sm border border-blue-100">
@@ -13,11 +17,30 @@ const Carrito = ({ cart }) => {
           <>
             <ul className="space-y-3 mb-4 max-h-60 overflow-y-auto pr-2">
               {cart.map(item => (
-                <li key={item.id} className="flex justify-between items-center border-b pb-2">
+
+                <li 
+                  key={item.id} 
+                  className="flex justify-between items-center border-b pb-2"
+                >
+                <div className="d-flex align-items-center">
+
+
+                  <img src={item.image}
+                      alt={item.title}
+                      className="rounded me-3"
+                      style={{
+                        width: "55px",
+                        height: "70px",
+                        objectFit: "cover"
+                      }} 
+                  
+                  />
+
                   <div className="w-2/3">
-                    <p className="font-semibold text-sm line-clamp-1">{item.title}</p>
-                    <p className="text-xs text-gray-500">Cantidad: {item.quantity}</p>
+                      <p className="font-semibold text-sm line-clamp-1">{item.title}</p>
+                      <p className="text-xs text-gray-500">Cantidad: {item.quantity}</p>
                   </div>
+                </div>
                   <p className="font-semibold text-sm">
                     ${(item.price * item.quantity).toLocaleString('es-CL')}
                   </p>
