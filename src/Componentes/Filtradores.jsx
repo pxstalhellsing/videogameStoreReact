@@ -58,11 +58,11 @@ const Filtradores = ({
           Hack and Slash
         </option>
 
-        <option value="RPG / Sci-FI">
+        <option value="RPG / Sci-Fi">
           RPG
         </option>
 
-        <option value="Accion / Aventure">
+        <option value="Acción / Aventura">
           Accion / Aventure
         </option>
 

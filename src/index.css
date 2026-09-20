@@ -111,3 +111,11 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: none;
+  text-align: left;
+}
