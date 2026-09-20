@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './Componentes/Navbar'
 import Filtradores from "./Componentes/Filtradores";
-import TarjetaJuego from "./Componentes/TarjetaJuego";
 import Carrito from "./Componentes/Carrito";
 import Favoritos from "./Componentes/Favoritos";
+import ListaJuegos from "./Componentes/ListaJuegos";
 
-import './App.css'
 
 type Juego = {
   id: number;
@@ -30,11 +29,138 @@ type JuegoCarrito = Juego & {
 function App() {
   const [vista, setvista] = useState("catalogo");
   const [juegos, setJuegos] = useState<Juego[]>([]);
-  const [carro, setcarro] = useState([]);
-  const [favoritos, setfavoritos] = useState([])
+  const [carro, setcarro] = useState<JuegoCarrito[]>([]);
+  const [genre, setGenre] = useState("");
+  const [detalle, setDetalle] = useState<Juego | null>(null);
+  const [error, setError] = useState("");
+  const [favoritos, setfavoritos] = useState<Juego[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [platform, setPlatform] = useState("");
   const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    let activo = true;
+  
+    const obtenerJuegos = async () => {
+      try {
+        const respuesta = await fetch("/games.json");
+  
+        if (!respuesta.ok) {
+          throw new Error("No se pudo cargar el catálogo");
+        }
+  
+        const datos: Juego[] = await respuesta.json();
+  
+        if (activo) {
+          setJuegos(datos);
+        }
+  
+      } catch (error) {
+        console.error(error);
+  
+        if (activo) {
+          setError("No se pudieron cargar los videojuegos.");
+        }
+  
+      } finally {
+        if (activo) {
+          setLoading(false);
+        }
+      }
+    };
+  
+    obtenerJuegos();
+  
+    return () => {
+      activo = false;
+    };
+  }, []);
+
+
+  const agregarAlCarrito = (juego: Juego) => {
+
+    setcarro((actual) => {
+      const existente = actual.find(
+        (item) => item.id === juego.id
+      );
+  
+      if (juego.stock <= 0) {
+        return actual;
+      }
+  
+      if (existente) {
+  
+        if (existente.quantity >= juego.stock) {
+          return actual;
+        }
+  
+        return actual.map((item) =>
+          item.id === juego.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+  
+      return [...actual, { ...juego, quantity: 1 }];
+    });
+  };
+
+  
+  const alternarFavorito = (juego: Juego) => {
+
+    setfavoritos((actual) => {
+  
+      const existe = actual.some(
+        (favorito) => favorito.id === juego.id
+      );
+  
+      if (existe) {
+        return actual.filter(
+          (favorito) => favorito.id !== juego.id
+        );
+      }
+  
+      return [...actual, juego];
+    });
+  };
+
+
+  const verDetalle = (juego: Juego) => {
+    setDetalle(juego);
+  };
+  
+  
+  // Filtrar videojuegos
+  const juegosFiltrados = juegos.filter((juego) => {
+  
+    const coincideBusqueda = juego.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+  
+    const coincidePlataforma =
+      platform === "" || juego.platform === platform;
+  
+    const coincideGenero =
+      genre === "" || juego.genre === genre;
+  
+    return (
+      coincideBusqueda &&
+      coincidePlataforma &&
+      coincideGenero
+    );
+  });
+
+  const finalizarCompra = () => {
+
+    if (carro.length === 0) {
+      return;
+    }
+  
+    setcarro([]);
+  
+    window.alert("¡Compra simulada realizada correctamente!");
+  };
 
   return (
     <>
@@ -43,33 +169,108 @@ function App() {
         cartCount={carro.length}
         favCount={favoritos.length}
       />
-      {vista === "catalogo" && (
+     {vista === "catalogo" && (
 
-      <div>
-        <h1>Catálogo de videojuegos</h1>
-      </div>
+<main className="mx-auto max-w-7xl p-6">
+
+  {detalle ? (
+
+    <div className="rounded-lg bg-white p-6 shadow">
+
+      <button
+        onClick={() => setDetalle(null)}
+        className="mb-4 rounded bg-gray-700 px-4 py-2 text-white"
+      >
+        Volver al catálogo
+      </button>
+
+      <h2 className="mb-3 text-2xl font-bold">
+        {detalle.title}
+      </h2>
+
+      <p className="mb-3">
+        {detalle.description ||
+          "Este videojuego todavía no tiene descripción."}
+      </p>
+
+      <p className="font-bold text-green-600">
+        ${detalle.price.toLocaleString("es-CL")}
+      </p>
+
+    </div>
+
+  ) : (
+
+    <>
+
+      <h1 className="mb-6 text-3xl font-bold">
+        Catálogo de videojuegos
+      </h1>
+
+      <Filtradores
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        platform={platform}
+        setPlatform={setPlatform}
+        genre={genre}
+        setGenre={setGenre}
+      />
+
+      {loading ? (
+
+        <p>Cargando videojuegos...</p>
+
+      ) : error ? (
+
+        <p className="text-red-600">{error}</p>
+
+      ) : (
+
+        <ListaJuegos
+          juegos={juegosFiltrados}
+          agregarAlCarrito={agregarAlCarrito}
+          alternarFavorito={alternarFavorito}
+          favoritos={favoritos}
+          verDetalle={verDetalle}
+        />
 
       )}
 
-      {vista === "favoritos" && (
+    </>
 
-      <div>
-        <h1>Mis favoritos</h1>
-      </div>
+  )}
+
+</main>
+
+)}
+
+    {vista === "favoritos" && (
+
+    <main className="mx-auto max-w-7xl p-6">
+
+      <Favoritos
+        favorites={favoritos}
+        toggleFavorite={alternarFavorito}
+      />
+
+    </main>
+
+    )}
+
+  {vista === "carrito" && (
+
+    <main className="mx-auto max-w-7xl p-6">
+
+    <Carrito
+      cart={carro}
+      onFinalizarCompra={finalizarCompra}
+    />
+
+    </main>
+
+    )}
 
 
-
-
-
-      )}
-
-      {vista === "carrito" && (
-
-      <div>
-        <h1>Mi carrito</h1>
-      </div>
-
-      )}
 
     </>
   );
