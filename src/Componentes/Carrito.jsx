@@ -1,4 +1,4 @@
-const Carrito = ({ cart }) => {
+const Carrito = ({ cart, onFinalizarCompra }) => {
     const total = cart.reduce(
       (sum, item) => 
         sum + (item.price * item.quantity),
@@ -54,7 +54,7 @@ const Carrito = ({ cart }) => {
                 ${total.toLocaleString('es-CL')}
               </span>
             </div>
-            <button className="w-full bg-green-500 text-white mt-4 py-2 rounded font-bold hover:bg-green-600 transition">
+            <button onClick={onFinalizarCompra} className="w-full bg-green-500 text-white mt-4 py-2 rounded font-bold hover:bg-green-600 transition">
               Finalizar Compra
             </button>
           </>
