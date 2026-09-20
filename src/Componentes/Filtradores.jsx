@@ -11,9 +11,9 @@ const Filtradores = ({
 
     <div className="bg-white p-4 rounded-lg shadow-sm mb-6 flex flex-col sm:flex-row gap-4">
 
-      <div className="row g-3">
+      <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-4">
 
-        <div className="col-12 col-md-5">  
+        <div className="w-full">  
           <input 
             type="text" 
             placeholder="Buscar por nombre de juego..." 
@@ -24,12 +24,12 @@ const Filtradores = ({
 
         </div>
 
-      <div className="col-12 col-md-3">
+      <div className="w-full">
 
           <select 
             value={platform} 
             onChange={(e) => setPlatform(e.target.value)}
-            className="border border-gray-300 p-2 rounded sm:w-1/3 bg-white focus:outline-none focus:border-blue-500"
+            className="border border-gray-300 p-2 rounded w-full bg-white focus:outline-none focus:border-blue-500"
           >
             <option value="">Todas las consolas</option>
             <option value="PC">PC</option>
@@ -39,11 +39,11 @@ const Filtradores = ({
           </select>
       </div>
 
-      <div className="col-12 col-md-3">
+      <div className="w-full">
         <select
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
-          className="form-select"  
+          className="w-full rounded border border-gray-300 bg-white p-2"  
           
         >
         <option value="">
@@ -89,9 +89,9 @@ const Filtradores = ({
 
       </div>
 
-      <div className="col-12 col-md-1">
+      <div className="w-full">
 
-        <button className="btn btn-secondary w-100" onClick={() => {
+        <button className="rounded bg-gray-700 px-4 py-2 text-white hover:bg-gray-600" onClick={() => {
 
           setSearchTerm("");
           setPlatform("");
@@ -100,7 +100,7 @@ const Filtradores = ({
 
          }}
         >
-          X
+        X
         </button>
 
 
