@@ -72,7 +72,7 @@ const TarjetaJuegos = ({
                 onClick={() => toggleFavorite(game)}
               >
 
-                {esFavorito ? "No" : "Si" }
+                {esFavorito ? "No" : "Agregar a Favoritos" }
               </button>
 
 
