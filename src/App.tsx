@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Navbar from './Componentes/Navbar'
 import Filtradores from "./Componentes/Filtradores";
-import TarjetaJuegos from "./Componentes/TarjetaJuegos";
+import TarjetaJuego from "./Componentes/TarjetaJuego";
 import Carrito from "./Componentes/Carrito";
 import Favoritos from "./Componentes/Favoritos";
 
@@ -22,6 +22,8 @@ type Juego = {
 type JuegoCarrito = Juego & {
   quantity: number;
 };
+
+
 
 
 

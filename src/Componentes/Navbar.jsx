@@ -1,4 +1,4 @@
-const Navbar = ({ cartCount, favCount }) => {
+const Navbar = ({ setvista, cartCount, favCount }) => {
     return (
       <nav className="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
@@ -10,7 +10,7 @@ const Navbar = ({ cartCount, favCount }) => {
             <span className="hover:text-red-400 transition" onClick={() => setvista("favoritos")}>
                 Favoritos: {favCount}
             </span>
-            <span className="hover:text-blue-400 transition">
+            <span className="hover:text-blue-400 transition" onClick={() => setvista("carrito")}>
                Carrito: {cartCount}
             </span>
           </div>
