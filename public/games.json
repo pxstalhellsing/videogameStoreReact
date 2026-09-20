@@ -6,6 +6,7 @@
         "genre": "Terror",
         "platform": "PC",
         "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bo0.webp",
+        "description": "Ambientada seis años después de los sucesos de Resident Evil 2, la historia nos presenta a un Leon S. Kennedy de mayor edad y curtido por la experiencia, marcado por haber sobrevivido al desastre que borró a Raccoon City del mapa y a los acontecimientos posteriores. Ahora, bajo las órdenes directas del presidente de los Estados Unidos, Leon recibe una nueva misión: localizar y rescatar a la hija del mandatario, quien ha sido secuestrada. Tras rastrear su paradero hasta una aldea aislada en la Europa rural, Leon se prepara para adentrarse en una nueva pesadilla que desafía toda lógica.",
         "stock": 35,
         "rating": 9.5
 
@@ -17,6 +18,7 @@
         "genre": "Hack and Slash",
         "platform": "PC",
         "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rb4.webp",
+        "description": "El juego tiene lugar cinco años después de Devil May Cry 4 y sigue a un trío de guerreros con poderes demoníacos, el regreso de Dante, Nero y un nuevo protagonista llamado V, mientras intentan evitar que el Rey Demonio Urizen destruya el mundo humano.",
         "stock": 30,
         "rating": 8.5
 
