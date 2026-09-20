@@ -7,37 +7,37 @@ const TarjetaJuegos = ({
   }) => {
   
     return (
-      <div className="card h-100 shadow-sm">
+      <div className="flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm">
   
         <img
           src={game.image}
           alt={game.title}
-          className="card-img-top"
+          className="w-full object-cover"
           style={{
             height: "300px",
             objectFit: "cover"
           }}
         />
 
-        <div className="card-body d-flex flex-column">
+        <div className="flex flex-1 flex-col p-4">
 
-          <h5 className="card-title">
+          <h5 className="mb-2 text-lg font-bold">
             {game.title}
           </h5>
 
-          <p className="card-text mb-1">
+          <p className="mb-1 text-sm text-gray-700">
             <strong>Género:</strong> {game.genre}
           </p>
 
-          <p className="card-text mb-1">
+          <p className="mb-1 text-sm text-gray-700">
             <strong>Plataforma:</strong> {game.platform}
           </p>
 
-          <p className="card-text mb-1">
+          <p className="mb-1 text-sm text-gray-700">
             <strong>Rating:</strong> {game.rating}
           </p>
 
-          <p className="card-text text-muted">
+          <p className="text-sm text-gray-500">
              Stock: {game.stock}
           </p>
 
@@ -45,18 +45,18 @@ const TarjetaJuegos = ({
             ${game.price.toLocaleString("es-CL")}
           </h4>
 
-          <div className="d-grid gap-2">
+          <div className="grid gap-2">
             <button  
-            className="btn btn-outline-primary" 
+            className="rounded border border-blue-600 px-3 py-2 text-blue-600 hover:bg-blue-50" 
             onClick={() => verDetalle(game)} 
             >
               Ver detalle
 
             </button>
 
-            <div className="d-flex gap-2">
+            <div className="flex gap-2">
               <button 
-                className="btn btn-primary flex-grow-1" 
+                className="flex-1 rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700" 
                 onClick={() => agregarCarrito(game)}
                 disabled={game.stock === 0}
               >
@@ -66,8 +66,8 @@ const TarjetaJuegos = ({
               <button
                 className={
                   esFavorito
-                  ? "btn btn-danger"
-                  : "btn btn-outline-danger"
+                    ? "rounded bg-red-600 px-3 py-2 text-white"
+                    : "rounded border border-red-500 px-3 py-2 text-red-500"
                 }
                 onClick={() => toggleFavorite(game)}
               >

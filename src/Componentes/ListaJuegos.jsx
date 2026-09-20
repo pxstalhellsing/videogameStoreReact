@@ -13,7 +13,7 @@ const ListaJuegos = ({
       {juegos.map((game) => (
 
        <div 
-        className="col-12 col-sm-6 col-md-4 col-lg-3"
+        className="min-w-0"
         key={game.id}
       > 
 
