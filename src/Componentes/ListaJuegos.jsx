@@ -4,7 +4,8 @@ const ListaJuegos = ({
   juegos, 
   agregarAlCarrito, 
   alternarFavorito, 
-  favoritos 
+  favoritos,
+  verDetalle 
 }) => {
 
   return (
