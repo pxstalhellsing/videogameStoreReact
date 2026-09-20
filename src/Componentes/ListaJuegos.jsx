@@ -17,19 +17,15 @@ const ListaJuegos = ({
         key={game.id}
       > 
 
-         <TarjetaJuegos
-            game={game}
-            agregarAlCarrito={agregarCarrito}
-            toggleFavorite={toggleFavorite}
-            esFavorito={
-              favoritos.some(
-                (favoritos) => 
-                  favorito.id === game.id
-                  
-                )
-              }
-            verDetalle={verDetalle}
-         />
+        <TarjetaJuegos
+          game={game}
+          agregarCarrito={agregarAlCarrito}
+          toggleFavorite={alternarFavorito}
+          esFavorito={favoritos.some(
+            (favorito) => favorito.id === game.id
+          )}
+          verDetalle={verDetalle}
+        />
         </div>
       ))}
     </div>
