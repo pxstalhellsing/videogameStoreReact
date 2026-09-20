@@ -60,7 +60,7 @@ const TarjetaJuegos = ({
                 onClick={() => agregarCarrito(game)}
                 disabled={game.stock === 0}
               >
-                Agregar
+                Agregar al Carrito
               </button>
 
               <button
