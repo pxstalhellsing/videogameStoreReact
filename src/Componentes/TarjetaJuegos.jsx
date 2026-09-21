@@ -7,12 +7,12 @@ const TarjetaJuegos = ({
   }) => {
   
     return (
-      <div className="flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm">
+      <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-purple-500 hover:shadow-xl">
   
         <img
           src={game.image}
           alt={game.title}
-          className="w-full object-cover"
+          className="h-72 w-full bg-slate-900 object-contain p-3"
           style={{
             height: "300px",
             objectFit: "cover"
@@ -25,29 +25,29 @@ const TarjetaJuegos = ({
             {game.title}
           </h5>
 
-          <p className="mb-1 text-sm text-gray-700">
+          <p className="mb-1 text-sm text-slate-300">
             <strong>Género:</strong> {game.genre}
           </p>
 
-          <p className="mb-1 text-sm text-gray-700">
+          <p className="mb-1 text-sm text-slate-300">
             <strong>Plataforma:</strong> {game.platform}
           </p>
 
-          <p className="mb-1 text-sm text-gray-700">
+          <p className="mb-1 text-sm text-slate-300">
             <strong>Rating:</strong> {game.rating}
           </p>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-slate-400">
              Stock: {game.stock}
           </p>
 
-          <h4 className="mt-auto mb-3">
+          <h4 className="mt-auto mb-4 pt-4 text-2xl font-bold text-green-400">
             ${game.price.toLocaleString("es-CL")}
           </h4>
 
           <div className="grid gap-2">
             <button  
-            className="rounded border border-blue-600 px-3 py-2 text-blue-600 hover:bg-blue-50" 
+            className="flex-1 rounded-lg bg-purple-600 px-3 py-2 font-medium text-white transition hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-600" 
             onClick={() => verDetalle(game)} 
             >
               Ver detalle
@@ -72,7 +72,7 @@ const TarjetaJuegos = ({
                 onClick={() => toggleFavorite(game)}
               >
 
-                {esFavorito ? "No" : "Agregar a Favoritos" }
+                {esFavorito ? "♥ Quitar" : "♡ Favorito" }
               </button>
 
 
