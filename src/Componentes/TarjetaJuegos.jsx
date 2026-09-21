@@ -7,16 +7,12 @@ const TarjetaJuegos = ({
   }) => {
   
     return (
-      <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-purple-500 hover:shadow-xl">
+      <div className="flex h-full w-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-purple-500">
   
         <img
           src={game.image}
           alt={game.title}
-          className="h-72 w-full bg-slate-900 object-contain p-3"
-          style={{
-            height: "300px",
-            objectFit: "cover"
-          }}
+          className="h-full w-full object-contain"
         />
 
         <div className="flex flex-1 flex-col p-4">
@@ -54,9 +50,9 @@ const TarjetaJuegos = ({
 
             </button>
 
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
               <button 
-                className="flex-1 rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700" 
+                className="w-full rounded-lg bg-blue-600 px-3 py-2 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-600" 
                 onClick={() => agregarCarrito(game)}
                 disabled={game.stock === 0}
               >

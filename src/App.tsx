@@ -227,7 +227,7 @@ function App() {
       />
      {vista === "catalogo" && (
 
-<main className="mx-auto max-w-7xl p-6">
+<main className="mx-auto w-full max-w-[1600px] px-4 py-8 lg:px-8">
 
   {detalle ? (
 
@@ -239,19 +239,20 @@ function App() {
       >
         Volver al catálogo
       </button>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-    {/* Carátula del videojuego */}
+   
 
     <div className="flex items-center justify-center rounded-lg bg-slate-900 p-4">
       <img
         src={detalle.image}
         alt={detalle.title}
-        className="h-80 w-full object-contain"
+        className="block h-72 w-56 max-w-full object-contain"
       />
     </div>
 
-    {/* Información del videojuego */}
+
 
     <div className="flex flex-col">
 
