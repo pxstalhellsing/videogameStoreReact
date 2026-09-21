@@ -51,6 +51,27 @@ function App() {
         }
   
         const datos: Juego[] = await respuesta.json();
+
+        const stockGuardado: Record<string, number> =
+          JSON.parse(
+            localStorage.getItem("gamestore-stock") || "{}"
+          );
+
+          const juegosConStock = datos.map((juego) => {
+
+            const stockActual = stockGuardado[juego.id];
+          
+            return {
+              ...juego,
+              stock:
+                typeof stockActual === "number" &&
+                Number.isFinite(stockActual)
+                  ? Math.max(0, stockActual)
+                  : juego.stock
+            };
+          
+          });
+          
   
         if (activo) {
           setJuegos(datos);
