@@ -1,7 +1,7 @@
 # GameStore — Tienda de Videojuegos
 
 Front-End de una tienda de videojuegos desarrollado en **React** para la
-Evaluación 1 de **Desarrollo de Aplicaciones Web**.
+Evaluación 1 de **Desarrollo de Aplicaciones Web** - Universidad Autonoma.
 
 **Integrantes:** Pía Fuentes, Javier Vergara
 
