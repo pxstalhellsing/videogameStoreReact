@@ -156,7 +156,42 @@ function App() {
     if (carro.length === 0) {
       return;
     }
+
+    const juegosActualizados = juegos.map((juego) => {
+
+      const productoComprado = carro.find(
+        (item) => item.id === juego.id
+      );
   
+      if (productoComprado) {
+        return {
+          ...juego,
+          stock: Math.max(
+            0,
+            juego.stock - productoComprado.quantity
+          )
+        };
+      }
+  
+      return juego;
+    });
+
+    setJuegos(juegosActualizados);
+
+  // Guardar el nuevo stock en el navegador
+  const stockGuardado = Object.fromEntries(
+    juegosActualizados.map((juego) => [
+      juego.id,
+      juego.stock
+    ])
+  );
+
+  localStorage.setItem(
+    "gamestore-stock",
+    JSON.stringify(stockGuardado)
+  );
+    
+
     setcarro([]);
   
     window.alert("¡Compra simulada realizada correctamente!");
