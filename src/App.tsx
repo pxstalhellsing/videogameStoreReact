@@ -231,30 +231,69 @@ function App() {
 
   {detalle ? (
 
-    <div className="rounded-lg bg-white p-6 shadow">
+    <div className="mx-auto max-w-4xl rounded-xl border border-slate-700 bg-slate-800 p-6 text-white shadow-xl">
 
       <button
         onClick={() => setDetalle(null)}
-        className="mb-4 rounded bg-gray-700 px-4 py-2 text-white"
+        className="mb-6 rounded-lg bg-slate-700 px-4 py-2 font-medium text-white transition hover:bg-slate-600"
       >
         Volver al catálogo
       </button>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-      <h2 className="mb-3 text-2xl font-bold">
+    {/* Carátula del videojuego */}
+
+    <div className="flex items-center justify-center rounded-lg bg-slate-900 p-4">
+      <img
+        src={detalle.image}
+        alt={detalle.title}
+        className="h-80 w-full object-contain"
+      />
+    </div>
+
+    {/* Información del videojuego */}
+
+    <div className="flex flex-col">
+
+  
+      <h2 className="mb-4 text-2xl font-bold text-white">
         {detalle.title}
       </h2>
 
-      <p className="mb-3">
+      <p className="mb-3 text-sm text-slate-300">
+        <strong>Género:</strong> {detalle.genre}
+      </p>
+
+      <p className="mb-3 text-sm text-slate-300">
+        <strong>Plataforma:</strong> {detalle.platform}
+      </p>
+
+      <p className="mb-3 text-sm text-slate-300">
+        <strong>Stock:</strong> {detalle.stock}
+      </p>
+
+      <p className="mb-3 text-sm text-slate-300">
         {detalle.description ||
           "Este videojuego todavía no tiene descripción."}
       </p>
 
-      <p className="font-bold text-green-600">
+      <p className="mt-auto text-3xl font-bold text-green-400">
         ${detalle.price.toLocaleString("es-CL")}
       </p>
 
-    </div>
+      <button
+        onClick={() => agregarAlCarrito(detalle)}
+        disabled={detalle.stock === 0}
+        className="mt-6 rounded-lg bg-purple-600 px-4 py-3 font-semibold text-white transition hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-600"
+      >
+        {detalle.stock === 0
+          ? "Sin stock"
+          : "Agregar al carrito"}
+      </button>
 
+      </div>
+    </div>
+  </div>
   ) : (
 
     <>
