@@ -74,7 +74,7 @@ function App() {
           
   
         if (activo) {
-          setJuegos(datos);
+          setJuegos(juegosConStock);
         }
   
       } catch (error) {
