@@ -14,13 +14,14 @@ const Favoritos = ({ favorites, toggleFavorite }) => {
                 <div>
                   <p className="font-semibold text-sm line-clamp-1">{game.title}</p>
                   <p className="text-xs text-gray-500">{game.platform}</p>
-                </div>
+                  
                 <button 
                   onClick={() => toggleFavorite(game)}
                   className="text-xs text-red-500 hover:text-red-700 underline"
                 >
                   Quitar
                 </button>
+              </div>
               </li>
             ))}
           </ul>
