@@ -41,9 +41,16 @@ const Carrito = ({ cart, onFinalizarCompra }) => {
                       <p className="text-xs text-gray-500">Cantidad: {item.quantity}</p>
                   </div>
                 </div>
+                  <div className="flex items-center gap-3">
+                    
+                  
                   <p className="font-semibold text-sm">
                     ${(item.price * item.quantity).toLocaleString('es-CL')}
                   </p>
+                  <button onClick={()=> onQuitar(item.id)} className= "text-xs text-red-500 hover:text-red-700 underline" arial-label={'Quitar ${item.title} del carrito'}>
+                    Quitar del Carrito
+                  </button>
+                </div>
                 </li>
               ))}
             </ul>

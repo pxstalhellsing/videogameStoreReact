@@ -127,6 +127,10 @@ function App() {
     });
   };
 
+  const quitarDelCarrito= (id: number) => {
+    setcarro((actual)=> actual.filter((item)=> item.id !== id));
+  };
+
   
   const alternarFavorito = (juego: Juego) => {
 
@@ -360,6 +364,7 @@ function App() {
     <Carrito
       cart={carro}
       onFinalizarCompra={finalizarCompra}
+      onQuitar={quitarDelCarrito}
     />
 
     </main>
