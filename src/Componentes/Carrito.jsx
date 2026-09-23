@@ -47,7 +47,7 @@ const Carrito = ({ cart, onFinalizarCompra, onQuitar }) => {
                   </p>
                   <button
                     onClick={() => onQuitar(item.id)}
-                    className="text-xs text-red-500 hover:text-red-700 underline"
+                    className="rounded border border-red-500 px-2 py-1 text-xs text-red-500 transition hover:bg-red-50"
                     aria-label={`Quitar ${item.title} del carrito`}
                   >
                     Quitar
