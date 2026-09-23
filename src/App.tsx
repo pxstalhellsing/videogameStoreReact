@@ -234,7 +234,7 @@ function App() {
     <>
       <Navbar
         setvista={setvista}
-        cartCount={carro.length}
+        cartCount={carro.reduce((total, item) => total + item.quantity, 0)}
         favCount={favoritos.length}
       />
      {vista === "catalogo" && (
